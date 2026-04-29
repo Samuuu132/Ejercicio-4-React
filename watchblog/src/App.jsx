@@ -1,12 +1,21 @@
 import { Routes, Route } from 'react-router-dom'
+import Navbar from './components/Navbar'
+import Home from './pages/Home'
+import WatchList from './pages/WatchList'
+import WatchDetail from './pages/WatchDetail'
+import NotFound from './pages/NotFound'
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<h1>Home</h1>} />
-      <Route path="/items" element={<h1>Listado de Relojes</h1>} />
-      <Route path="/items/:id" element={<h1>Detalle del Reloj</h1>} />
-    </Routes>
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/items" element={<WatchList />} />
+        <Route path="/items/:id" element={<WatchDetail />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </>
   )
 }
 
